@@ -19,6 +19,7 @@ def sunUp():
    o.date = datetime.datetime.now()#'2018/10/15 22:30:00'
    s = ephem.Sun()
    s.compute(o)
+   print("S alt", s.alt)
    return s.alt < 0
 
 def getCurrentMode():
@@ -63,14 +64,14 @@ def changeMode():
     stdout, stderr = p.communicate(scpt)
 
 def GeoIP():
-    send_url = 'http://api.ipstack.com/check?access_key=ebb35d3b8119a4d82aa93285578c2196'
+    #send_url = 'http://api.ipstack.com/check?access_key='
     r = requests.get(send_url)
     j = json.loads(r.text)
     latitude = j['latitude']
     longitude = j['longitude']
     lat = int(latitude)
     long = int(longitude)
-    print (latitude,longitude)
+    print ("lat,long:", latitude,longitude)
     return(latitude,longitude)
 
 while True:
