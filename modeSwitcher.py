@@ -22,7 +22,7 @@ def sunUp():
    return s.alt < 0
 
 def getCurrentMode():
-    scpt = '''
+    scpt = b'''
         tell application "System Events"
 
     	tell appearance preferences
@@ -47,7 +47,7 @@ def getCurrentMode():
         return False
 
 def changeMode():
-    scpt = '''
+    scpt = b'''
         tell application "System Events"
 
     	tell appearance preferences
