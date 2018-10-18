@@ -19,6 +19,7 @@ def sunUp():
    o.date = datetime.datetime.now()#'2018/10/15 22:30:00'
    s = ephem.Sun()
    s.compute(o)
+   print("o =", o.date)
    print("S alt", s.alt)
    return s.alt < 0
 
@@ -37,8 +38,8 @@ def getCurrentMode():
 
     p = Popen(['osascript', '-'], stdin=PIPE, stdout=PIPE, stderr=PIPE)
     stdout, stderr = (p.communicate(scpt))
-
-    print (stdout[0])
+    stdout = stdout.decode('utf-8')
+    print ("stdout =", stdout[0])
 
     if stdout[0] == 't':
         print ("Dark mode on")
